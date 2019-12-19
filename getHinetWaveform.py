@@ -5,7 +5,7 @@ import os
 from obspy import read
 
 sDate=datetime(2012,2,1)+timedelta(days=0)#days=30+100+30-400)
-count=200# how many day
+count=200# how many days
 
 spanDays=1#365*8
 client=Client("***","***")#username passwd
