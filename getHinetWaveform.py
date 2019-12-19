@@ -5,12 +5,13 @@ import os
 from obspy import read
 
 sDate=datetime(2012,2,1)+timedelta(days=0)#days=30+100+30-400)
-spanDays=1#365*8
+count=200# how many day
 
+spanDays=1#365*8
 client=Client("***","***")#username passwd
 filename="event_lst"
 client.get_arrivaltime(sDate,spanDays,filename=filename)
-count=200
+
 eventDir='eventDir/'
 eventDir2='event/'
 
@@ -21,6 +22,7 @@ while count>0:
         count=count-1
         sDate=sDate+timedelta(days=1)
         client.get_arrivaltime(sDate,spanDays,filename=filename)
+        ### set requirement
         client.get_event_waveform(sDate.strftime("%Y-%m-%d %H:%M:%S"),\
             (sDate+timedelta(days=1)).strftime("%Y-%m-%d %H:%M:%S"),minmagnitude=-1, maxmagnitude=9.9,\
             include_unknown_mag=True,minlatitude=30, maxlatitude=50, minlongitude=125,\
