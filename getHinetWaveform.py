@@ -47,7 +47,7 @@ while count>0:
                 eventCh=event+eventName+'.ch'
                 eventInfo=event+eventName+'.txt'
                 event2=eventDir2+eventName[1:7]+'/'+eventName+'/'
-                evenPhaseFile=eventDir2+eventName[1:7]+'/'+eventName+'/phaseLst' 
+                eventPhaseFile=eventDir2+eventName[1:7]+'/'+eventName+'/phaseLst' 
                 if os.path.exists(event2):
                     1
                 else:
@@ -69,7 +69,6 @@ while count>0:
                     line=eventLst[indexLst[i]]
                     isFind=line.find(eventCode)
                     if isFind>=0:
-                        eventPhaseFile=event2+"/eventInfo"
                         eventPhase=open(eventPhaseFile,'w')
                         index=indexLst[i]
                         eventPhase.write(eventLst[index-1]+'\n')
